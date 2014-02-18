@@ -1,0 +1,19 @@
+<% provide(:title, "Sign in") %>
+<html>
+<body>
+	
+	<div class="container">
+		<%= link_to image_tag("netflix.jpg", alt: "Movie Rental", style: 'padding:20px 10px', class: 'img-circle'),'/'%>
+		<%= form_for(:session, url: '/sessions', class: "form-signin") do |f| %>
+		<%= f.label :email %>
+		<%= f.text_field :email, class: "form-control" %>
+
+		<%= f.label :password %>
+		<%= f.password_field :password, class: "form-control"%>
+
+		<%= f.submit "SignIn", class: "btn btn-large btn-primary btn-block" %>
+		<% end %>
+	</div>
+</body>
+</html>
+

@@ -1,0 +1,16 @@
+<% provide(:title,'Revoke')%>
+<html>
+<body>
+	<div style='float:left;margin-top:-20px;padding:4px;position:relative'>
+		<%= link_to "Home", "/movies/home", method: "get", class: 'btn btn-lg btn-primary btn-block ' %><br>
+	</div>
+	<div class='container'>
+		<p>Revoke Rental</p>
+		<%= form_for(:customers,:url => {:controller => 'customers',:action => 'destroy'},class: 'form-sigin') do |f| %>
+		Movie Name: <%= f.text_field :movie_name, class: 'form-control' %>
+		Mobile Number: <%= f.text_field :mobile, class: 'form-control' %>
+		<%= f.submit :Revoke, class: 'btn btn-lg btn-primary btn-block'%>
+		<%end%>
+	</div>
+</body>
+</html>

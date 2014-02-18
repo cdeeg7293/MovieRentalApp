@@ -1,0 +1,32 @@
+<% provide(:title, 'Home') %>
+<!DOCTYPE html>
+<html>
+<body>
+	<h1 align="left" style="padding:10px;font-style:italic">
+		Welcome <span style="font: 22px bold;color:red">Admin</span>
+	</h1>
+	<% if @movie %>
+		<%@movie.each do |mov|%>
+			<div class="movie-container">
+				<header style="font:18px bold;color:#66CC00"><%= mov.name %></header>
+				<p><b>Release:</b> <%= mov.year_of_release%></p>
+				<p><b>Language:</b> <%= mov.language%></p>
+				<p><b>Genre:</b> <%=mov.genre%></p>
+				<p><b>Status:</b><%if mov.status %>
+					<span style="color:green">Available</span>
+					<%else%>
+					<span style="color:red">Not Available</span>
+					<%end%>
+			</div>
+		<%end%>
+	<% else %>
+		<p style="color:red">No movies found </p>
+	<%end%>
+
+	<div style="clear:both;margin-left:10px;margin-top:10px">
+		<br><%= link_to "Add Movies", "/movies/new", method: "get", class: 'btn btn-primary btn-lg' %>
+		<%= link_to "Rent a Movie", "/customers/new", method: "get", class: 'btn btn-primary btn-lg' %>
+		<%= link_to "Revoke Rental", "/customers/revoke", method: "get", class: 'btn btn-primary btn-lg' %>
+	</div>
+</body>
+</html>

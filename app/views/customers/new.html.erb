@@ -1,0 +1,24 @@
+<% provide(:title,'Customer Details') %>
+<!DOCTYPE html>
+<html>
+<body>
+	<div style='float:left;margin-top:-20px;padding:4px;position:relative'>
+		<%= link_to "Home", "/movies/home", method: "get", class: 'btn btn-lg btn-primary btn-block ' %>
+	</div>
+	<div class='container'>
+		<h3>Customer Details</h3>
+		<%= form_for(:customers,:url => {:controller => 'customers', :action => 'create'}, class: 'form-signin') do |f| %>
+		Customer Name: <br><%= f.text_field :name, class: 'form-signin' %></br>
+		Mobile No: <br><%= f.text_field :mobile, class: 'form-signin' %></br>
+		Email: <br><%=f.text_field :email,class: 'form-signin' %> </br>
+		Address: <br><%= f.text_field :address, class: 'form-signin' %></br>
+		Movie Name: <br><%= f.text_field :movie_name, class: 'form-signin' %></br>
+		<%= f.submit :Submit, class: 'btn btn-primary btn-lg btn-block'%>
+		<%end%>
+		<% if flash[:notice] %>
+		<span class="alert alert-error"><%= flash.now[:notice] %></span>
+		<%end%>
+	</div>
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<% provide(:title,'add movie') %>
+<!DOCTYPE html>
+<html>
+<body>
+	<div style='float:left;margin-top:-20px;padding:4px;position:relative'>
+		<%= link_to "Home", "/movies/home", method: "get", class: 'btn btn-lg btn-primary btn-block ' %>
+	</div>
+	<div class='container'>
+		<h1>Add Movie</h1>
+		<%= form_for(:movies,:url => {:controller => 'movies', :action => 'create'}, class: 'form-signin') do |f| %>
+		Movie Name</br> <%=f.text_field :name, class: 'form-control'%><br>
+		Language</br> <%=f.select :language,['English', 'Hindi', 'Telugu'], :include_blank => false, class: 'form-control'%><br>
+		Year</br> <%=f.text_field :year_of_release, class: 'form-control'%><br>
+		Genre</br><%=f.text_field :genre, class: 'form-control'%><br>
+		<%= f.hidden_field :status, :value => true %>
+		<%= f.submit :Submit, class: 'btn btn-primary btn-lg btn-block'%>
+		<%end%>
+		<% if flash[:notice] %>
+		<span class="alert alert-error"><%= flash[:notice] %></span>
+		<%end%>
+		<% if @movie.errors.any? %>
+      		<ul class="alert alert-error">
+      			<% for message_error in @movie.errors.full_messages %>
+      				<li><%= message_error %></li>
+      		</ul>
+    	<% end %>
+<% end %>
+	</div>
+</body>
+</html>
