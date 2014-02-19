@@ -1,10 +1,22 @@
 class CustomersController < ApplicationController
+	def index
+		@customers = Customers.all
+	end
+
+	def show
+		@customers = Customers.find(params[:id])
+	end
+
 	def new
 		@customers = Customers.new
 	end
 
 	def revoke
 		@movie = Rentals.new
+	end
+	
+	def edit
+		@customers = Customers.find(params[:id])
 	end
 	
 	def create
@@ -36,6 +48,12 @@ class CustomersController < ApplicationController
 	end
 
 	def update
+		@user = Customers.find(params[:id])
+    	if @user.update_attributes(customer_params)
+      		redirect_to '/customers/index'
+    	else
+      		render 'edit'
+    	end
 	end
 
 	def destroy

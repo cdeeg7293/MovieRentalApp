@@ -4,6 +4,10 @@ class MoviesController < ApplicationController
 		@movie = Movies.find(:all)
 	end
 	
+	def get_borrower(mov_name)
+		return mov_name
+	end
+	
 	def new
 		@movie = Movies.new
 	end

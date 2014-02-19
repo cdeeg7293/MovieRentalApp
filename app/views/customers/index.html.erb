@@ -1,0 +1,12 @@
+<% provide(:title, 'All users') %>
+<div style='float:left;margin-top:-20px;padding:4px;position:relative'>
+	<%= link_to "Home", "/movies/home", method: "get", class: 'btn btn-lg btn-primary btn-block ' %>
+</div>
+<ul class="container">
+	<p style="color:green">User List</p>
+  <% @customers.each do |user| %>
+    <li>
+      	<%= link_to user.name, edit_customer_path(user)%>
+    </li>
+  <% end %>
+</ul>

@@ -1,0 +1,18 @@
+<% provide(:title,'Edit Customer Details') %>
+<html>
+<body>
+	<div style='float:left;margin-top:-20px;padding:4px;position:relative'>
+		<%= link_to "Home", "/movies/home", method: "get", class: 'btn btn-lg btn-primary btn-block ' %>
+	</div>
+	<div class="container">
+		<p style="color:red;font:20px bold">Do your edits</p>
+		<%= form_for(@customers) do |f|%>
+		<%= f.text_field :name, class: 'form-sigin'%>
+		<%= f.text_field :mobile, class: 'form-sigin' %>
+		<%= f.text_field :email, class: 'form-sigin' %>
+		<%= f.text_field :address, class: 'form-sigin' %>
+		<%= f.submit 'Save Changes',class: 'btn btn-lg btn-primary'%>
+		<%end%>
+	</div>
+</body>
+</html>

@@ -1,5 +1,7 @@
 <% provide(:title, 'Home') %>
 <!DOCTYPE html>
+<head>
+</head>
 <html>
 <body>
 	<h1 align="left" style="padding:10px;font-style:italic">
@@ -8,17 +10,19 @@
 	<% if @movie %>
 		<%@movie.each do |mov|%>
 			<div class="movie-container">
-				<header style="font:18px bold;color:#66CC00"><%= mov.name %></header>
+				<header style="font:18px bold;color:#66CC00" id="movname"><%= mov.name %></header>
 				<p><b>Release:</b> <%= mov.year_of_release%></p>
 				<p><b>Language:</b> <%= mov.language%></p>
 				<p><b>Genre:</b> <%=mov.genre%></p>
-				<p><b>Status:</b><%if mov.status %>
-					<span style="color:green">Available</span>
+				<p><b>Status:</b>
+					<% if mov.status %>
+					<span style="color:green">Available</span></p>
 					<%else%>
-					<span style="color:red">Not Available</span>
+						<span style="color:red">Not Available</span>
 					<%end%>
-			</div>
-		<%end%>
+					</p>
+				</div>
+			<%end%>
 	<% else %>
 		<p style="color:red">No movies found </p>
 	<%end%>
@@ -27,6 +31,7 @@
 		<br><%= link_to "Add Movies", "/movies/new", method: "get", class: 'btn btn-primary btn-lg' %>
 		<%= link_to "Rent a Movie", "/customers/new", method: "get", class: 'btn btn-primary btn-lg' %>
 		<%= link_to "Revoke Rental", "/customers/revoke", method: "get", class: 'btn btn-primary btn-lg' %>
+		<%= link_to "Show customers", "/customers/index", method: "get", class: 'btn btn-lg btn-primary'%> 
 	</div>
 </body>
 </html>

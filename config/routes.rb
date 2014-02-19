@@ -6,12 +6,14 @@ MovieRentalApp::Application.routes.draw do
   resources :admins
   resources :sessions, only: [:new, :create, :destroy]
   resources :movies, only: [:new, :create, :destroy]
-  resources :customers, only: [:new, :create, :destroy]
+  resources :customers, only: [:new, :create, :destroy,:index,:edit,:update]
   root 'sessions#new'
   get '/movies/home'
   get '/movies/new'
   get '/customers/revoke'
   get '/customers/destroy'
+  get '/customers/index'
+  get '/movies/get_borrower'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/customers/destroy', to: 'customers#destroy', via: 'post'
