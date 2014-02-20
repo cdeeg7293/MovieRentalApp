@@ -19,6 +19,7 @@
 					<span style="color:green">Available</span></p>
 					<%else%>
 						<span style="color:red">Not Available</span>
+						<p> <%= link_to "Revoke",{ :controller => 'rentals', :action => 'destroy',:name => mov.name },{method: :delete,:confirm => "Are You sure?"} %>
 					<%end%>
 					</p>
 				</div>
@@ -30,7 +31,7 @@
 	<div style="clear:both;margin-left:10px;margin-top:10px">
 		<br><%= link_to "Add Movies", "/movies/new", method: "get", class: 'btn btn-primary btn-lg' %>
 		<%= link_to "Rent a Movie", "/customers/new", method: "get", class: 'btn btn-primary btn-lg' %>
-		<%= link_to "Revoke Rental", "/customers/revoke", method: "get", class: 'btn btn-primary btn-lg' %>
+		<!--<%= link_to "Revoke Rental", "/customers/revoke", method: "get", class: 'btn btn-primary btn-lg' %>-->
 		<%= link_to "Show customers", "/customers/index", method: "get", class: 'btn btn-lg btn-primary'%> 
 	</div>
 </body>

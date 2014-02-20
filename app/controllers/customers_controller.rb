@@ -42,7 +42,7 @@ class CustomersController < ApplicationController
 				render 'new'
 			end
 		else
-			flash[:notice] = "Movie limit exceeded"
+			flash.now[:notice] = "Movie limit exceeded"
 			render 'new'
 		end
 	end
