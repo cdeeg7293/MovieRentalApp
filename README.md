@@ -10,10 +10,7 @@ The entities are the following
 -Admins[username, password]
 
 
-As this is intended for offline use, I have setup admin login with the following credentials
-
-Email: vemanapavan@gmail.com
-passwd: hello123
+As this is intended for offline use, You have to setup admin login
 
 Please write to me if you do not understand the flow of app
 
